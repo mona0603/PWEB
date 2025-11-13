@@ -1,0 +1,81 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+body{
+    min-height: 100vh;
+    background-color: white;
+}
+.page-content{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+/*      POST        */
+.main-section{
+    height: auto;
+    width: 100%;
+    margin: 0 auto;
+    /* background-color: red; */
+
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    position: relative;
+}
+.notis-container{
+    /* background-color: orange; */
+    width: 100%;
+    max-width: 600px;   /* límite superior */
+    min-width: 300px;
+    /* background-color: orange; */
+
+    display: flex;
+    flex-direction: column;
+}
+.division-not{
+    padding: 10px 0;
+}
+.division-not hr {
+    background-color: var(--sec-color);
+    height: 1px;
+    border: none;
+}
+.notis-display{
+    width: 100%;
+    /* background-color: yellow; */
+    display: flex;
+    gap: 5px;
+    padding: 10px;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+}
+.notis-display:hover{
+    border-radius: 10px;
+    cursor: pointer;
+    /* transition: transform 0.3s ease; */
+    background-color: var(--sec-aux-color);
+}
+.nd-img{
+    width: 50px;
+    aspect-ratio: 1/1;
+}
+.nd-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    border-radius: 100%;
+}
+.nd-user{
+    flex: 1;
+    /* background-color: pink; */
+}
+.ndu-date{
+    color: grey;
+    font-size: small;
+}

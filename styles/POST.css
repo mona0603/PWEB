@@ -1,0 +1,1337 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+body{
+    min-height: 100vh;
+    background-color: white;
+}
+
+/*delineado*/
+.dd-user:hover,
+.card-h p:hover,
+#whotof:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.c-opt i:hover,
+#goback:hover{
+    background-color: rgb(223, 220, 216);
+    border-radius: 100%;
+}
+.post-comment:hover{
+    background-color: var(--sec-aux-color);
+}
+#pcancel:hover{
+    background-color: var(--sec-color);
+}
+#pcomment:hover{
+    background-color: var(--page-color-hover);
+}
+.card-btns button:hover{
+    background-color: rgb(189, 186, 182);
+}
+
+.p-content{
+    flex: 1;
+    /*height: calc(100vh - 66px); /*toda la pantalla del alto, pero no necesario en este caso(?*/
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+#goback{
+    width: 40px;
+    aspect-ratio: 1/1;
+    border: none;
+    border-radius: 100%;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+
+.post-comment{
+    border-radius: 30px;
+    color: grey;
+    border: 1px solid;
+    border-color: var(--sec-color);
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.post-comment p,
+.post-cpost{
+    padding: 10px 15px;
+}
+.comment-trigger.hidden,
+.post-cpost{
+    display: none; /* ocultar el trigger */
+}
+.post-cpost.active {
+    display: block; /* mostrar cuando tenga la clase active */
+}
+.post-textarea{
+    padding: 5px 0;
+}
+#pc-comm{
+    width: 100%;
+    display: block;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--black);
+}
+.pc-comm-btns{
+    display: flex;
+    gap: 10px;
+    justify-content: end;
+}
+.pc-comm-btns button{
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all .3s ease;
+    border-radius: 10px;
+}
+#pcancel{
+    background-color: var(--sec-aux-color);
+    color: var(--black);
+}
+#pcomment{
+    background-color: var(--page-color);
+    color: white;
+}
+.post-users-comm{
+    padding: 5px;
+}
+.puc-comment{
+    margin-top: 5px;
+}
+.puc-comment textarea{
+    display: block;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: var(--black);
+    background-color: transparent;
+}
+.puc{
+    flex:1;
+    padding-left: 10px;
+    position: relative;
+}
+.puc-user{
+    display: flex;
+
+}
+.puc-info{
+    flex:1;
+    font-size: small;
+    margin: 0 auto;
+}
+#puc-dot,
+#puc-date{
+    color: grey;
+}
+
+
+/*      POSTS       */
+.post-container{
+    /* background-color: green; */
+    width: 100%;
+    max-width: 600px;   /* límite superior */
+    min-width: 300px;
+}
+.post{ /*hover*/
+    display: block;
+    text-decoration: none;
+    color: inherit;
+
+    width: 100%;
+    margin: 0 auto; /*centrar*/
+    transition: all 0.3s ease;
+    padding: 5px;
+}
+.card-header{
+    display: flex;
+    padding: 5px;
+    position: relative;
+}
+.card-img{
+    width: 40px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.card-h{
+    padding-left: 10px;
+    font-size: small;
+}
+.c-opt{
+    font-size: large;
+    color: var(--black);
+    position: absolute;
+    right: 5px;
+    /* background-color: yellow; */
+}
+#dot,
+#pdate{
+    color: grey;
+}
+.fa-ellipsis{
+    padding: 10px;
+    transition: all .3s ease;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--black);
+    /* background-color: red; */
+}
+.fa-ellipsis:hover{
+    background-color: rgb(223, 220, 216);
+    border-radius: 100%;
+    cursor: pointer;
+    color: black;
+}
+.edit-post-btn.iconi,
+.delete-post-btn.iconi,
+.report-post-btn.iconi{
+    /* background-color: orange; */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.card-texta{
+    padding: 5px;
+    width: 100%;
+}
+.card-texta textarea{
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: var(--black);
+}
+.card-media{
+    width: 100%;
+    background-color: transparent;
+    padding: 5px;
+}
+.card-media img{
+    width: 100%;
+    height: fit-content;
+    border-radius: var(--main-space);
+}
+.card-btns{
+    display: flex;
+    gap: 10px;
+    padding: 5px;
+}
+.card-btns button{
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: rgb(223, 220, 216);
+    transition: all 0.3s ease;
+}
+.card-btns button:hover{
+    background-color: rgb(189, 186, 182);
+    cursor: pointer;
+}
+.post-hr{
+    padding: 10px 0;
+}
+.post-hr hr{
+    background-color: var(--sec-color);
+    height: 1px;
+    border: none;
+    max-width: 600px;   
+    min-width: 300px;
+    margin: 0 auto;
+}
+
+/*      HOVER PARA VER EL PERFIL DEL USUARIO        */
+.card-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-profile {
+    display: none;
+    cursor: default;
+    position: absolute;
+    background-color: var(--dark-bg-aux);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 10px;
+    z-index: 10;
+    width: 300px;
+    border-radius: 10px;
+    transition: all .3s ease;
+    color: black;
+}
+.card-dropdown > .card-img:hover + .dropdown-profile {
+    display: block;
+}
+.dd-banner {
+    height: 100px;
+    
+    /*imagen de banner*/
+    background-size: cover;
+    border-radius: 10px 10px 0px 0px;
+
+    transition: all .3s ease;
+}
+.dd-pfp{
+    margin-top: -50px; /* ajusta la superposición */
+    width: 25%; /* ancho de la imagen en base al padre .dropdown-profile*/
+    aspect-ratio: 1/1;
+    z-index: 1; /* para que quede arriba del banner */
+    background-color: var(--dark-bg-aux);
+    border-radius: 100%;
+    padding: 5px;
+}
+.dd-pfp img{
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    transition: all .3s ease;
+}
+.dd-banner img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px 10px 0px 0px;
+}
+.dd-info{
+    padding: 5px;
+    position: relative;
+    color: var(--black);
+}
+#dd-username{
+    color: grey;
+    font-size: small;
+    margin-bottom: 10px;
+}
+.dd-ff{
+    margin-top: 10px;
+    display: flex;
+    gap: 20px;
+}
+#dd-f{
+    color: grey;
+}
+#dd-follow-btn{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--page-color);
+    cursor: pointer;
+    transition: all .3s ease;
+    color: white;
+}
+
+#dd-follow-btn2{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--page-color);
+    cursor: pointer;
+    transition: all .3s ease;
+    color: white;
+}
+
+
+
+
+
+
+
+/*      WIDGET      */
+.right-w{
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.widget-r{
+    background-color: var(--sec-aux-color);
+    height: 600px;
+    width: 100%;
+    overflow-y: auto;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/*      SUGGESTED FOR YOU       */
+.f-suggest{
+    border: 1px solid;
+    border-color: var(--sec-color);
+    height: 400px;
+    width: 100%;
+    overflow-y: auto;
+    padding: 10px;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.s-user:hover{
+    background-color: var(--sec-aux-color);
+    border-radius: 10px;
+}
+#whotof{
+    color:var(--black);
+}
+.s-user{
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all .3s ease;
+    text-decoration: none;
+}
+#s-user-unm{
+    color: grey;
+}
+.s-user button{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.s-user button:hover{
+    background-color: var(--sec-color);
+}
+/*
+#fs-img{
+    display: block;
+    width: 40px;
+    aspect-ratio: 1/1;
+    border-radius: 100%;
+}*/
+.s-user-display{
+    flex: 1;
+}
+
+.card-media {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.card-media img,
+.card-media video {
+    max-width: 100%;
+    max-height: 400px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Contenedor del comentario */
+
+.puc-user.reply {
+    position: relative; 
+}
+.puc-user, .card-dropdown, .puc {
+    position: relative; 
+}
+
+
+.puc, .puc-user {
+    position: relative;
+}
+
+/* Botón ⋯ */
+.comment-actions {
+    position: absolute; 
+    top: 10px;
+    right: 10px;
+    z-index: 999; 
+    pointer-events: auto;
+}
+
+.comment-actions .action-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.comment-actions .action-btn:hover {
+    color: #007bff;
+}
+
+
+/* Menú desplegable */
+.comment-actions .action-menu {
+    display: none;
+    position: absolute;  
+    top: 30px;
+    right: 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    min-width: 120px;
+    z-index: 9999;
+}
+
+.comment-actions .action-menu button {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    text-align: left;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+}
+
+.comment-actions .action-menu button:hover {
+    background: #f5f5f5;
+}
+
+/* Mostrar menú */
+.comment-actions .action-menu.show {
+    display: block;
+}
+
+
+@keyframes slideFade {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+
+/* REPLYS*/
+/* Contenedor de replies */
+/* Botón Reply cerca del comentario */
+/* Botón de reply alineado al texto */
+.reply-btn {
+    cursor: pointer;
+    color: #1877f2;
+    font-size: 0.82em;
+    margin-left: 38px;
+    margin-top: 2px;
+    display: inline-block;
+}
+
+/* Contenedor de replies */
+.puc-user.reply {
+    position: relative; 
+}
+
+/* textarea de reply */
+.puc-user.reply textarea {
+    width: 100%;
+    resize: none;
+    border: none;
+    background-color: transparent;
+    font-size: 0.9em;
+    padding: 2px 0;       
+}
+
+
+.puc-user.reply .card-dropdown {
+    display: flex;             
+    flex: 1;
+    gap: 6px;
+    align-items: flex-start;
+}
+/* Formulario de reply justo debajo del comentario */
+.reply-form-container {
+    margin-top: 1px;    
+    display: flex;
+    flex-direction: column;   
+}
+
+.reply-form-container textarea {
+    width: 100%;
+    padding: 6px;
+    border-radius: 8px;
+    border: 1px solid #ccd0d5;
+    font-size: 0.9em;
+    resize: none;
+}
+
+.reply-form-container button {
+    background-color:var(--page-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 4px 10px;
+    margin-top: 4px;
+    font-size: 0.85em;
+    cursor: pointer;
+}
+
+.reply-form-container button.cancel-reply {
+    background-color: #e4e6eb;
+    color: black;
+    margin-left: 6px;
+}
+.replies-container {
+    margin-top: 4px;
+    margin-left: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    max-height: 0;            
+    overflow: hidden;          
+    transition: max-height 0.3s ease;
+}
+
+.replies-container.show {
+    max-height: 1000px;      
+    overflow: visible;        
+}
+
+
+
+/* Cada reply individual */
+/* Contenedor y botón ⋯ */
+.puc-user.reply .comment-actions {
+    margin-left: auto;     
+    position: relative;    
+    display: flex;
+    align-items: flex-start;
+}
+
+.puc-user.reply .action-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0 4px;
+}
+
+
+/* Menú desplegable */
+.puc-user.reply .action-menu {
+    display: none;
+    position: absolute;
+    top: 24px; 
+    right: 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    min-width: 120px;
+    z-index: 1000;
+}
+
+/* Botones del menú */
+.puc-user.reply .action-menu button {
+    width: 100%;
+    padding: 6px 10px;
+    text-align: left;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 0.85em;
+    color: #333;
+}
+
+.puc-user.reply .action-menu button:hover {
+    background-color: #f5f5f5;
+}
+
+/* Mostrar menú */
+.puc-user.reply .action-menu.show {
+    display: block;
+}
+
+
+
+
+/* Comentario en textarea */
+.puc-user.reply .puc-comment textarea {
+    margin: 0;          
+    padding: 0;         
+    font-size: 0.88em;
+    background: transparent;
+    border: none;
+    resize: none;
+    line-height: 1.3;
+    display: block;
+}
+
+.puc-user.reply .reply-dot,
+.puc-user.reply .reply-date {
+    color: grey;
+    font-size: small;
+}
+
+
+
+
+.edit-actions {
+    margin-top: 8px;
+    display: flex;
+    gap: 10px;
+    opacity: 0;
+    transform: translateY(-5px);
+    pointer-events: none;
+    transition: all 0.25s ease;
+  }
+  
+  .edit-actions.show-edit {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  
+  /* Botones bonitos */
+  .edit-actions .cancel-btn {
+    background-color: var(--sec-aux-color);
+    color: var(--black);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .edit-actions .cancel-btn:hover {
+    background-color: var(--sec-color);
+  }
+  
+  .edit-actions .save-btn {
+    background-color: var(--page-color);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .edit-actions .save-btn:hover {
+    background-color: var(--page-color-hover);
+  }
+  
+
+  .editing-status {
+    font-size: 12px;
+    color: var(--page-color);
+    margin-top: 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.editing-status.show {
+    opacity: 1;
+}
+
+.edited-label {
+    font-size: 12px;
+    color: gray;
+    font-style: italic;
+    margin-left: 6px;
+}
+
+.puc-info .puc-edited {
+    font-size: 12px;
+    color: gray;
+    margin-left: 4px;
+  }
+  
+
+
+
+/* BOTON PELANA NO ME ACUERDO PARA QUE LO PUSE LUEGO LO BORRO*/
+.delete-comment-btn {
+    background-color: #ff4d4f; 
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.delete-comment-btn:hover {
+    background-color: #ff7875; 
+    transform: scale(1.05);
+}
+.delete-confirm {
+    display: flex;
+    gap: 6px;
+    margin-top: 4px;
+    font-size: 12px;
+    align-items: center;
+}
+
+.delete-confirm span {
+    color: #555;
+}
+
+.delete-confirm button {
+    padding: 2px 6px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.delete-confirm .confirm-yes {
+    background-color: #ff4d4f;
+    color: white;
+}
+
+.delete-confirm .confirm-no {
+    background-color: #ddd;
+    color: black;
+}
+
+.delete-confirm button:hover {
+    opacity: 0.8;
+}
+.modal {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  /* .modal-content {
+    background-color: #fff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    min-width: 300px;
+  } */
+  
+  .modal-buttons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .modal-buttons button {
+    padding: 6px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.2s;
+  }
+  
+  #modal-cancel {
+    background-color: #ddd;
+    color: #333;
+  }
+  
+  #modal-confirm {
+    background-color: #ff4d4f;
+    color: white;
+  }
+  
+  .modal-buttons button:hover {
+    opacity: 0.85;
+  }
+  
+  #delete-modal {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top:0; left:0; width:100%; height:100%;
+    background: rgba(0,0,0,0.5);
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+#delete-modal.show {
+    display: flex;
+    opacity: 1;
+}
+/* .modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+} */
+
+/* Contenedor del menú de replies */
+.reply-actions {
+    position: relative; 
+    margin-left: auto;  
+    display: flex;
+    align-items: center;
+    gap: 8px; 
+    
+}
+
+/* Botón de los tres puntitos */
+.reply-action-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 0;
+}
+
+/* Menú desplegable de replies */
+.reply-menu {
+    display: none; /* oculto por defecto */
+    position: absolute;
+    top: 25px;  /* debajo del botón */
+    right: 0;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    min-width: 120px;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+/* Botones del menú */
+.reply-menu button {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    text-align: left;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #333;
+}
+
+.reply-menu button:hover {
+    background: #f5f5f5;
+}
+
+/* Mostrar menú */
+.reply-menu.show {
+    display: block;
+}
+
+
+
+
+/* Card container sigue siendo flex para avatar + contenido */
+.puc-user.reply .card-dropdown {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    position: relative; /* Para que el dropdown se posicione respecto a card-dropdown */
+}
+
+/* Avatar */
+.puc-user.reply .card-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative; /* Para que dropdown se posicione desde aquí */
+}
+
+/*          ESTO CAUSABA CONFLICTOS          */
+/* Dropdown del perfil
+.puc-user.reply .dropdown-profile {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 50px; /* Ajusta según tamaño del avatar 
+    width: 250px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 100;
+}
+.puc-user.reply .card-img:hover + .dropdown-profile {
+    display: block;
+} */
+
+
+/*ANIMACION LIKES*/
+.like-btn i {
+    color: #000; 
+    transition: color 0.3s; 
+}
+
+/* Color dorado cuando ya dio like */
+.like-btn i.liked {
+    color: #ffca28;
+}
+
+/* Color dorado cuando ya dio like */
+.like-btn i.liked {
+    color: #ffca28; 
+}
+
+/* Partículas doradas */
+.like-btn .particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Animación de explosión con rebote */
+@keyframes explode {
+    0% { transform: translate(0,0) scale(1); opacity: 1; }
+    60% { opacity: 1; }
+    80% { transform: translate(var(--x), var(--y)) scale(0.7); }
+    100% { transform: translate(calc(var(--x) * 0.9), calc(var(--y) * 0.9)) scale(0); opacity: 0; }
+}
+
+/* Destellos brillantes */
+.like-btn .spark {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #fff8dc;
+    opacity: 0;
+    pointer-events: none;
+}
+
+@keyframes spark {
+    0% { transform: scale(0); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 1; }
+    100% { transform: scale(0); opacity: 0; }
+}
+
+/* Pop del icono con cambio de color */
+@keyframes pop {
+    0% { transform: scale(1); color: #000; }
+    50% { transform: scale(1.6); color: #ffca28; }
+    100% { transform: scale(1); color: #ffca28; }
+}
+
+.like-btn i.animate-like {
+    animation: pop 0.4s forwards;
+}
+
+
+
+/* Fondo oscuro */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+  }
+  
+  /* Caja del modal */
+.modal-box {
+    background: var(--white);
+    
+    border-radius: 12px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    animation: fadeIn 0.3s ease;
+}
+  
+  /* Animación suave */
+  @keyframes fadeIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  /* Botones */
+
+
+  .puc-user.reply .dropdown-profile {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 50px; /* Ajusta según tamaño del avatar */
+    width: 250px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 100;
+}
+
+
+.puc-user.reply .card-img:hover + .dropdown-profile {
+    display: block;
+}
+.c-menu {
+    display: none;
+    position: absolute;
+    top: 28px; 
+    right: 0;
+    background: var(--dark-bg-aux);
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    min-width: 140px;
+    padding: 6px 0;
+    z-index: 1000;
+    font-size: 0.9rem;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+  }
+  
+  /* Cuando se abre */
+  .c-menu.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Opciones dentro del menú */
+  .c-menu button {
+    display: block;
+    width: 100%;
+    padding: 8px 14px;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--black);
+    transition: background 0.15s, color 0.15s;
+    border-radius: 4px;
+  }
+  
+  /* Hover sobre opciones */
+  .c-menu button:hover {
+    background: #f0f0f0;
+    color: #000;
+  }
+  
+.modal-overlay {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease forwards;
+  }
+  
+  /* Caja del modal */
+  /* .modal-box {
+    background: #fff;
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 360px;
+    text-align: center;
+    transform: translateY(-20px);
+    animation: slideIn 0.3s ease forwards;
+    transition: all 0.3s ease;
+  } */
+  
+  /* Texto del modal */
+  .modal-text {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Botones */
+  .modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .modal-actions button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+  }
+  
+  /* Cancelar */
+  .btn-cancel {
+    background: var(--sec-aux-color);
+    color: #333;
+  }
+  
+  .btn-cancel:hover {
+    background: var(--sec-color);
+  }
+  
+  /* Delete */
+  .btn-delete {
+    background: red;
+    color: white;
+  }
+  
+  .btn-delete:hover {
+    background-color: rgb(199, 1, 1);
+  }
+  
+  /* Animaciones */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  /* Animación de cierre */
+  .modal-overlay.closing {
+    animation: fadeOut 0.3s forwards;
+  }
+  
+  .modal-box.closing {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+/* Ocultar modal por defecto */
+#post-delete-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  /* Caja del modal */
+  #post-delete-modal .modal-box {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+
+  .inline-edit-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: opacity 0.25s, transform 0.25s;
+}
+
+.inline-edit-actions.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.inline-edit-actions .cancel-btn {
+    background-color: var(--sec-aux-color);
+    color: var(--black);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.inline-edit-actions .cancel-btn:hover {
+    background-color: var(--sec-color);
+}
+
+.inline-edit-actions .save-btn {
+    background-color: var(--page-color);
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.inline-edit-actions .save-btn:hover {
+    background-color: var(--page-color-hover);
+}
+
+.puc-edited {
+    font-size: 12px;
+    color: gray;
+    font-style: italic;
+    margin-left: 4px;
+}
+
+.puc-edited.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+
+.reply-btn, 
+.view-replies-btn {
+    font-size: 0.8em;
+    cursor: pointer;
+    line-height: 1;  /* importante para que queden al mismo nivel */
+}
+
+.reply-btn {
+    color: #1877f2;
+}
+
+.view-replies-btn {
+    color: #555;
+}
+
+.view-replies-btn:hover {
+    text-decoration: underline;
+}
+
+.swal2-cancel.cancel-btn-custom {
+    background: #fff !important;
+    color: #000 !important;
+    border: none !important;
+  }
+  
+  .swal2-confirm {
+    color: #fff !important;
+  }
+  

@@ -1,0 +1,371 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+body{
+    min-height: 100vh;
+    background-color: white;
+}
+.profile-content{
+    flex: 1;
+    height: calc(100vh - 66px); /*toda la pantalla*/
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.p-main{
+    background-color: var(--dark-bg-aux);
+    box-shadow: 0px 5px 10px 0px rgba(0,0,0,0.4);
+    padding: 10px;
+    border-radius: 15px;
+}
+.edit-form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: clamp(200px, 90vw, 400px);
+}
+.up-banner {
+    background-color: var(--sec-color);
+    height: clamp(75px, 20vh, 150px);
+    border-radius: 10px 10px 0px 0px;
+    border: 1px solid grey;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.up-banner img{
+    border-radius: 10px 10px 0px 0px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.up-pfp {
+    margin-top: -60px; /* ajusta la superposición */
+    max-width: 25%; /* ancho de la imagen en base al padre .left*/
+    aspect-ratio: 1/1;
+    z-index: 1; /* para que quede arriba del banner */
+    background-color: var(--dark-bg-aux);;
+    border-radius: 100%;
+    padding: 5px;
+}
+.up-pfp img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.up-banner:hover,
+.up-pfp img:hover{
+    opacity: .7;
+}
+.down-user{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#changep{
+    background-color: var(--sec-color);
+    color: var(--black);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    color: var(--black);
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.down-display{
+    display: flex;
+    gap: 10px;
+}
+.username-wrapper{
+    width: 50%;
+    position: relative;
+}
+.displayname-wrapper{
+    width: 50%;
+}
+.displayname-wrapper input{
+    padding: 15px;
+}
+.username-wrapper input{
+    padding: 15px 31px;
+}
+.username-wrapper input,
+.displayname-wrapper input{
+    width: 100%;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    background-color: var(--sec-aux-color);
+    transition: all .3s ease;
+}
+.username-wrapper::before{
+    content: "@";
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: gray;
+    pointer-events: none; /* para que el usuario pueda escribir normalmente */
+}
+/*hover*/
+.down-user textarea:hover,
+.down-user input:hover,
+.down-display input:hover,
+.cp-u input:hover{
+    background-color: var(--sec-color);
+}
+.down-user textarea,
+.down-user input,
+#dd,
+.cp-u input, 
+.cpq input{
+    padding: 15px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    background-color: var(--sec-aux-color);
+    transition: all .3s ease;
+}
+.cpq input{
+    width: 100%;
+}
+#dd{
+    width: 50%;
+}
+.up-banner,
+.down-member{
+    color: grey;
+    font-size: small;
+}
+.down-date{
+    display: flex;
+    gap: 10px;
+}
+.down-gender{
+    display: flex;
+    justify-content: space-between;
+}
+.down-btns button{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+#delete-btn{
+    background-color: red;
+    margin-top: 10px;
+}
+#delete-btn:hover{
+    background-color: rgb(199, 1, 1);
+}
+#save-btn{
+    background-color: var(--page-color);
+}
+#save-btn:hover{
+    background-color: var(--page-color-hover);
+}
+.down-gender label{
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+}
+.down-date select{
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--sec-aux-color);
+    color: var(--black);
+}
+.down-date option{
+    background-color: var(--dark-bg-aux);
+}
+
+
+/*      RESTAURAR CONTRASEÑA        */
+.cpmodal,
+.dmodal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    z-index: 21; /*encima de todo*/
+}
+.change-content,
+.delete-modal{
+    width: 400px;
+    height: auto;
+    background: var(--dark-bg-aux);
+    border-radius: 15px;
+    position: relative;
+    padding: 15px;
+    box-shadow: 2px 9px 49px -5px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+
+    z-index: 21;
+}
+.cp-close,
+.d-close{
+    aspect-ratio: 1/1;
+    width: 10%;
+    font-size: 1rem;
+    border-radius: 100%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    background-color: var(--sec-aux-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.cp-close:hover{
+    background-color: var(--sec-color);
+}
+.cp-aux,
+.cp-u{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.btn-cp-close,
+.btn-d-close{
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.btn-cp-close span,
+.btn-d-close span{
+    margin: 0 auto;
+    font-weight: bolder;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.cp-u-forgot{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    font-size: small;
+}
+.cpq-inputs{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.cp-btn,
+.cpq-btn{
+    display: flex;
+    gap: 10px;
+}
+#cp-save,
+#cpq-verify{
+    background-color: var(--page-color);
+    color: var(--white);
+}
+#cp-cancel,
+#cpq-cancel{
+    background-color: var(--sec-color);
+    color: var(--black);
+}
+#cp-cancel,
+#cp-save,
+#cpq-cancel,
+#cpq-verify{
+    width: 50%;
+    padding: 10px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+#cp-cancel:hover,
+#cpq-cancel:hover,
+#changep:hover{
+    background-color: rgb(189, 186, 182);
+}
+#cp-save:hover,
+#cpq-verify:hover{
+    background-color: var(--page-color-hover);
+}
+.cp-question{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/*      BORRAR CUENTA        */
+.d-question{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+.confirm-delete{
+    display: flex;
+    box-sizing: border-box;
+    gap: 10px;
+}
+.confirm-delete input{
+    width: 70%;
+    padding: 15px;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    background-color: var(--sec-aux-color);;
+    transition: all .3s ease;
+}
+.confirm-delete button{
+    flex: 1;
+    border-radius: 15px;
+    border: none;
+    background-color: var(--page-color);
+    color: var(--white);
+    transition: all .3s ease;
+}
+.confirm-delete input:hover{
+    background-color: var(--sec-color);
+}
+.confirm-delete button:hover{
+    background-color: var(--page-color-hover);
+    cursor: pointer;
+}
+.undone{
+    color: red;
+    font-size: small;
+}

@@ -1,0 +1,394 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Be Vietnam Pro', sans-serif;
+}
+body{
+    min-height: 100vh;
+    background-color: white;
+}
+.page-content{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+/*                  CONTENIDO DE LA ENCICLOPEDIA                  */
+.main-section{
+    height: auto;
+    width: 100%;
+    margin: 0 auto;
+    /* background-color: red; */
+    padding: 10px;
+
+    display: flex;
+    justify-content: center;
+    position: relative;
+    flex-direction: column;
+}
+.e-content{
+    /* background-color: pink; */
+    flex: 1;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    align-items: flex-start;
+    transition: all .3s ease;
+    border-radius: 10px;
+}
+.e-content:hover{
+    background-color: var(--sec-aux-color);
+    cursor: pointer;
+}
+.ep-img {
+  width: 100px;
+  aspect-ratio: 1/1;
+  flex-shrink: 0; /* evita que se haga más pequeña */
+  flex-grow: 0;   /* evita que crezca */
+}
+.ep-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+}
+.date-style{
+    font-size: small;
+    color: grey;
+}
+.ep-details {
+  /* background-color: green; */
+  flex: 1; /* permite que el bloque verde crezca */
+}
+.ep-toggle{
+    /* text-decoration: underline; */
+    color: blue;
+}
+
+/* Imagen flotante tipo Wikipedia */
+.e-table{
+  float: right;        
+  width: 300px;
+  background-color: var(--sec-aux-color);
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid grey;
+}
+.e-table img{
+    width: 100%;
+    object-fit: contain;
+    display: block;
+}
+.e-logo{
+    width: 50px;
+    aspect-ratio: 1/1;
+}
+.ep-uno{
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.ep-dos{
+    /* background-color: pink; */
+}
+.ep-uno img{
+    border-radius: 100%;
+}
+/*                  VER INFO COMPLETA                    */
+.epmodal{
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    padding: 10px;
+    display: none;
+    z-index: 21; /*encima de todo*/
+    
+}
+.epcontent{
+    background-color: var(--dark-bg-aux);
+    /* opacity: .5; */
+
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.ep-close{
+    aspect-ratio: 1/1;
+    width: 33px;
+}
+.ep-close button{
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    border: none;
+    cursor: pointer;
+}
+.ep-display{
+    /* background-color: rebeccapurple; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.date-style{
+    color: grey;
+    font-size: small;
+    margin-bottom: 10px;
+}
+.ep-tags{
+    /* background-color: green; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.ep-views{
+    color: grey;
+}
+
+/* Tabla cuadriculada */
+.tags-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+.tags-table tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+}
+.tags-table td {
+    padding: 10px;
+    border: 1px solid var(--black);
+}
+/* .tags-table td:last-child {
+    border-right: none;
+} */
+.tag-name {
+    font-weight: bolder;
+    display: flex;
+    align-items: center;
+}
+
+/*                  SUGGESTED FOR YOU                  */
+.f-suggest{
+    border: 1px solid;
+    border-color: var(--sec-color);
+    height: 400px;
+    width: 100%;
+    overflow-y: auto;
+    padding: 10px;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.s-user:hover{
+    background-color: var(--sec-aux-color);
+    border-radius: 10px;
+}
+#whotof{
+    color:var(--black);
+}
+.s-user{
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all .3s ease;
+    text-decoration: none;
+}
+#s-user-unm{
+    color: grey;
+}
+.s-user button{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+.s-user button:hover{
+    background-color: var(--sec-color);
+}
+.card-img{
+    width: 40px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 100%;
+    box-sizing: border-box;
+}
+.s-user-display{
+    flex: 1;
+}
+
+/*                  HOVER PARA VER EL PERFIL DEL USUARIO                  */
+.card-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-profile {
+    display: none;
+    cursor: default;
+    position: absolute;
+    background-color: var(--dark-bg-aux);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 10px;
+    z-index: 10;
+    width: 300px;
+    border-radius: 10px;
+    transition: all .3s ease;
+    color: black;
+}
+.card-dropdown:hover .dropdown-profile {
+    display: block;
+}
+.dd-banner {
+    height: 100px;
+    
+    /*imagen de banner*/
+    background-size: cover;
+    border-radius: 10px 10px 0px 0px;
+
+    transition: all .3s ease;
+}
+.dd-pfp{
+    margin-top: -50px; /* ajusta la superposición */
+    width: 25%; /* ancho de la imagen en base al padre .dropdown-profile*/
+    aspect-ratio: 1/1;
+    z-index: 1; /* para que quede arriba del banner */
+    background-color: var(--dark-bg-aux);;
+    border-radius: 100%;
+    padding: 5px;
+}
+.dd-pfp img{
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    transition: all .3s ease;
+}
+.dd-banner img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px 10px 0px 0px;
+}
+.dd-info{
+    padding: 5px;
+    position: relative;
+    color: var(--black);
+}
+#dd-username{
+    color: grey;
+    font-size: small;
+    margin-bottom: 10px;
+}
+.dd-ff{
+    margin-top: 10px;
+    display: flex;
+    gap: 20px;
+}
+#dd-f{
+    color: grey;
+}
+#dd-follow-btn{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--page-color);
+    cursor: pointer;
+    transition: all .3s ease;
+    color: white;
+}
+
+#dd-follow-btn2{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--page-color);
+    cursor: pointer;
+    transition: all .3s ease;
+    color: white;
+}
+
+
+.delete-info-btn {
+    background: transparent;
+    border: none;
+    color: #e74c3c;
+    cursor: pointer;
+    font-size: 18px;
+    transition: transform 0.2s, color 0.2s;
+  }
+  .delete-info-btn:hover {
+    color: #c0392b;
+    transform: scale(1.1);
+  }
+  
+
+  /*Para que se vea bien el boton "cancelar" de eliminar infos*/
+
+  .swal2-popup .swal2-actions .cancel-btn-custom {
+    color: #000 !important;           /* texto oscuro */
+    border: 1px solid #ccc !important;
+    background-color: #fff !important;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .swal2-popup .swal2-actions .cancel-btn-custom:hover {
+    background-color: #f5f5f5 !important;
+    border-color: #999 !important;
+  }
+
+  #toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: rgba(25, 25, 25, 0.9);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transform: translateY(20px);
+    z-index: 9999;
+  }
+  #toast.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  #toast.success {
+    background: #2ecc71; /* verde suave */
+  }
+  #toast.error {
+    background: #e74c3c; /* rojo suave */
+  }
+  
+  
